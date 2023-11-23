@@ -32,7 +32,7 @@ export default function Footer() {
                </li>
             </ul>
 
-            <ul className='md:col-span-1 sm:col-span-2  flex flex-col sm:items-center items-start space-y-4 text-slate-300 '>
+            <ul className='md:col-span-1 sm:col-span-1 flex flex-col items-start space-y-4 text-slate-300 '>
                <ul>
                   <li className='font-bold text-white'>যোগাযোগ</li>
                </ul>

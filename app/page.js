@@ -9,35 +9,35 @@ import NoRecord from './components/NoRecord'
 export default function Home() {
 
   const pathName = usePathname();
-  const { pageKeys, currentPage, setCurrentPage, newsPages, selectedCategory } = React.useContext(ViewContext);
+  const { filteredPages, setFilteredPages,pageKeys, pageOnView, setPageOnView, newsPages, selectedCatagory } = React.useContext(ViewContext);
 
-  const styleActive = (pageKey) => pageKey == currentPage ? "shadow-md shadow-blue-700 border-t-2 border-blue-800" : "bg-slate-100 border-t-2 border-b-2 border-slate-500";
+  const styleActive = (pageKey) => pageKey == pageOnView ? "shadow-lg shadow-blue-800 border-l-4 border-blue-800" : "bg-slate-100 border-t-2 border-b-2 border-slate-500";
 
   useEffect(() => {
     // alert("date will be extracted from url and load data accordingly   \nCurrent pathname is: " + pathName)
 
-    if (selectedCategory == "All") {
-      setCurrentPage(pageKeys[0]);
+    if (selectedCatagory == "All") {
+      setPageOnView(pageKeys[0]);
     } else {
-      let firstPageOfThatCatagory = pageKeys.filter((item, ind) => selectedCategory == "All" || newsPages[item].catagory.name == selectedCategory)[0]
-      setCurrentPage(firstPageOfThatCatagory);
+      let firstPageOfThatCatagory = pageKeys.filter((item, ind) => selectedCatagory == "All" || newsPages[item].catagory.name == selectedCatagory)[0]
+      setPageOnView(firstPageOfThatCatagory);
     }
-  }, [selectedCategory])
+  }, [selectedCatagory])
 
 
   return (
     <main className="grid grid-cols-4 ">
       <div className='col-span-1 md:flex hidden flex-col gap-4 items-center py-2'>
 
-        {pageKeys.filter((item, ind) => selectedCategory == "All" || newsPages[item].catagory.name == selectedCategory)?.map((page, index) => {
-          return <button onClick={() => setCurrentPage(page)}
+        {filteredPages?.map((page, index) => {
+          return <button onClick={() => setPageOnView(page)}
             className={`p-0.75 ${styleActive(page)}  rounded-md shadow-sm`}>
             <Image src={newsPages[page].src} className=' w-10.6 h-17.6' /></button>
         })
         }
       </div>
       <div className='md:col-span-3 col-span-4 bg-slate-100 min-h-fit'>
-      {newsPages[currentPage]?.src ? <Image src={newsPages[currentPage].src} className='w-full h-fit' />:<NoRecord/>}
+        {newsPages[pageOnView]?.src ? <Image src={newsPages[pageOnView].src} className='w-full h-fit' /> : <NoRecord />}
       </div>
     </main>
   )
