@@ -1,7 +1,6 @@
 'use client';
 import { createContext, useEffect, useState } from 'react';
-// data
-import { pages } from '../../static-data/data'
+// data 
 import { categories } from '../../static-data/data.js'
 import { loadedPages } from '../../static-data/data.js'
 
@@ -9,16 +8,18 @@ export const ViewContext = createContext();
 
 export default function Provider({ children }) {
 
-   const [news, setNews] = useState(pages);
-   const [currentPage, setCurrentPage] = useState(1);
-   const [selectedCategory, setSelectedCategory] = useState("");
+   const [pageKeys, setPageKeys] = useState(Object.keys(loadedPages));
+   const [newsPages, setNewsPages] = useState(loadedPages);
+   const [currentPage, setCurrentPage] = useState(pageKeys[0]);
+   const [selectedCategory, setSelectedCategory] = useState("All");
+   const [selectedDate, setSelectedDate] = useState(new Date());
+   const [archModalVisible, setArchModal] = useState(false);
 
-   useEffect(() => {
 
-   }, [])
+ 
 
-   return (<ViewContext.Provider value={{ news, setNews, currentPage, setCurrentPage, categories, loadedPages, selectedCategory, setSelectedCategory }}>
+   return (<ViewContext.Provider value={{ archModalVisible, setArchModal, pageKeys, selectedDate, setSelectedDate, today: new Date(), newsPages, setNewsPages, currentPage, setCurrentPage, categories, loadedPages, selectedCategory, setSelectedCategory }}>
       {children}
    </ViewContext.Provider>)
-
+   hhhh
 }

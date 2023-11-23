@@ -4,15 +4,39 @@ import page3 from '../public/news/page3.jpg'
 import page4 from '../public/news/page4.jpg'
 
 const categories = [
+   "All",
    "General",
    "Crime",
-   "Politics"
+   "Politics",
+   "Entertainment"
 ]
 const loadedPages = {
-   "page 1": "page-1", "page 2": "page 2", "page 3": "page 3", "page 4": "page 4", "page 5": "page 1", "page 6": "page 6",
+   "page 1": {
+      id: 1, src: page1,
+      catagory: {
+         id: 1,
+         name: "General"
+      },
+   }, "page 2": {
+      id: 2, src: page2,
+      catagory: {
+         id: 1,
+         name: "General"
+      },
+   }, "page 3": {
+      id: 3, src: page3,
+      catagory: {
+         id: 2,
+         name: "Crime"
+      },
+   }, "page 4": {
+      id: 4, src: page4,
+      catagory: {
+         id: 3,
+         name: "Politics"
+      },
+   },
 }
 
-const pages = [page1, page2, page3, page4];
 
-
-export { categories, loadedPages, pages } 
+export { categories, loadedPages } 

@@ -23,4 +23,11 @@ function getNumberInBangla(year) {
    return year;
 }; 
 
-export { monthsInBangla, getNumberInBangla }
+function getToday(){
+   const todayInBD=getNumberInBangla(new Date().getDate()) + " " + monthsInBangla[new Date().getMonth()] + " " + getNumberInBangla(new Date().getFullYear()) + " ইং";
+   const todayInEn= new Date().getDate() + "/" + (new Date().getMonth()+1) + "/" + new Date().getFullYear();
+
+return {todayInBD,todayInEn}
+}
+
+export { monthsInBangla, getNumberInBangla,getToday }

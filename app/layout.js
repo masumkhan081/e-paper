@@ -1,4 +1,4 @@
-
+ 
 import './globals.css'
 import { monthsInBangla, getNumberInBangla } from '@/util/thoBanglaDigit'
 import NavTop from './components/NavTop'
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="  bg-slate-200">
-        <div className=' mx-2.5 bg-white px-1.0'>
+        <div className=' mx-2.5 bg-white px-1.0 flex flex-col gap-3.0'>
           <Provider>
             <NavTop />
             {children}
