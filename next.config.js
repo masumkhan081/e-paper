@@ -2,7 +2,7 @@
 const nextConfig = {
 
    env: {
-      root: 'http://localhost:3000',
+      root: 'https://epaper-khulnanchal.vercel.app',
     },
 }
 

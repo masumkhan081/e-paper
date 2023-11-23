@@ -77,8 +77,6 @@ export default function NavTop() {
                </div>
             </div>
 
-
-
             <div className='bg-slate-100 flex sm:flex-row flex-col sm:gap-0 gap-2 sm:items-center items-start justify-between py-0.5 px-1.0'>
                <p className='flex gap-2 items-center font-bold'>  <span>Home</span> <IoIosArrowForward /> <span>All Catagories</span> <IoIosArrowForward /> <span>{selectedCatagory ? selectedCatagory : "All"} </span></p>
 
