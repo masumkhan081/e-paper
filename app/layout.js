@@ -1,4 +1,4 @@
- 
+
 import './globals.css'
 import { monthsInBangla, getNumberInBangla } from '@/util/thoBanglaDigit'
 import NavTop from './components/NavTop'
@@ -13,14 +13,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="  bg-slate-200">
-        <div className=' mx-2.5 bg-white px-1.0 flex flex-col gap-3.0'>
-          <Provider>
+      <body className="bg-slate-200">
+        <Provider>
+          <div className=' md:mx-2.5 sm:mx-1.0 mx-0 bg-white px-1.0 flex flex-col gap-3.0'>
+
             <NavTop />
             {children}
             <Footer />
-          </Provider>
-        </div>
+
+          </div></Provider>
       </body>
     </html>
   )

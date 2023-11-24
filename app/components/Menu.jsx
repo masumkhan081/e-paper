@@ -1,0 +1,61 @@
+import React, { useRef, useEffect, useState } from 'react'
+import { ViewContext } from '../context/Provider';
+import CustomButton from '../common-ui/CustomButton';
+
+import { TiThMenu } from "react-icons/ti";
+import { FaSearch, FaFileArchive } from 'react-icons/fa'
+import CustomSelect from '../common-ui/CustomSelect';
+import CustomInput from '../common-ui/CustomInput';
+
+
+export default function Menu({ bg, value }) {
+
+   const { menuVisible, setMenu, selectedCatagory, setSelectedCatagory, catagories } = React.useContext(ViewContext);
+
+   const cmn_icon_style = "w-1.5 h-1.5 mx-1 "
+
+   useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+         document.removeEventListener('mousedown', handleClickOutside);
+      };
+   }, []);
+
+   const dropdownRef = useRef(null);
+   const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+         setMenu(false);
+      }
+   };
+
+   function onPageSelect(value) {
+      setSelectedCatagory(value)
+      setMenu(false)
+   }
+
+   useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+         document.removeEventListener('mousedown', handleClickOutside);
+      };
+   }, []);
+
+   return (
+      <div className="relative " ref={dropdownRef}>
+
+         <CustomButton click={() => setMenu(!menuVisible)} iconStart={<TiThMenu className={cmn_icon_style} />} />
+
+         {menuVisible ?
+            (<div className="absolute ms-1.0 mr-2.0 px-2.0 py-2.0  min-h-[300px] flex flex-col gap-1.0 
+            items-start  z-10 top-full right-0 bg-blue-900 border-double border-t-8 border-b-8 border-blue-400
+               rounded-md shadow overflow-x-auto  ">
+
+               <CustomButton bg="light" click={() => { }} txt="Archieve" iconStart={<FaFileArchive className={`${cmn_icon_style} bg-blue-700 shadow-sm text-white`} />} />
+               <CustomSelect value={selectedCatagory} options={catagories} bg="light" onChange={onPageSelect} />
+               <CustomInput inputType='text' ph="Search .." buttonIcon={<FaSearch className={cmn_icon_style} />} />
+
+            </div>) : null
+         }
+      </div>
+   )
+}

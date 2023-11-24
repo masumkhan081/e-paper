@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import addPic from '../../public/add-pics/sample.jpg'
 import brandIcon from '../../public/images/brand.png'
 import { FaHome, FaSearch } from 'react-icons/fa'
+import { TiThMenu } from "react-icons/ti";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { } from "react-icons/io5";
 import { CgMenuGridR } from "react-icons/cg";
@@ -18,13 +19,14 @@ import CustomButton from '../common-ui/CustomButton.jsx'
 import { ViewContext } from '../context/Provider'
 import { getToday } from '@/util/thoBanglaDigit';
 import ArchieveModal from './ArchieveModal';
+import Menu from './Menu';
 
 
 export default function NavTop() {
 
 
-   const { filteredPages, setFilteredPages, archModalVisible, setArchModal, pageKeys, selectedDate, setSelectedDate, selectedCatagory, setSelectedCatagory,
-      categories, pageOnView, setPageOnView,
+   const { setMenu, menuVisible, filteredPages, setFilteredPages, archModalVisible, setArchModal, pageKeys, selectedDate, setSelectedDate, selectedCatagory, setSelectedCatagory,
+      catagories, pageOnView, setPageOnView,
       loadedPages, newsPages, setNewsPages, today } = React.useContext(ViewContext);
 
    const cmn_icon_style = "w-1.5 h-1.5 mx-1 "
@@ -63,18 +65,22 @@ export default function NavTop() {
 
          <div className='border-t-[7px]  border-blue-700 rounded-md '>
 
-
-            <div className='flex md:flex-row flex-col md:gap-0 gap-2 md:justify-between md:items-center items-start bg-black py-0.75 px-1.5'>
+            <div className='flex flex-row   justify-between items-center bg-black py-0.75 px-1.5'>
                <Link href={process.env.root}><FaHome className='w-2.0 h-2.0 text-white' /></Link>
-               <div className='flex sm:flex-row flex-col sm:justify-between sm:gap-1.0 gap-0.5 sm:items-center items-start'>
+               <div className='sm:flex flex-row hidden justify-between gap-1.0 items-center '>
                   <div>
                      <CustomButton bg="blue" click={() => { }} txt="Archieve" iconStart={<IoCalendarOutline className={`${cmn_icon_style} bg-blue-700 text-white`} />} />
                   </div>
                   <div className='flex items-center gap-1.0'>
-                     <CustomSelect value={selectedCatagory} options={categories} bg="blue" onChange={(value) => setSelectedCatagory(value)} />
+                     <CustomSelect value={selectedCatagory} options={catagories} bg="blue" onChange={(value) => setSelectedCatagory(value)} />
                      <CustomInput inputType='text' ph="Search .." buttonIcon={<FaSearch className={cmn_icon_style} />} />
                   </div>
                </div>
+               <div className='sm:hidden block relative bg-slate-200 rounded-md '>
+
+                  <Menu />
+               </div>
+
             </div>
 
             <div className='bg-slate-100 flex sm:flex-row flex-col sm:gap-0 gap-2 sm:items-center items-start justify-between py-0.5 px-1.0'>

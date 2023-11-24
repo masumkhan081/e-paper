@@ -9,7 +9,7 @@ import NoRecord from './NoRecord';
 export default function ArchieveModal() {
 
    const { filteredPages, setFilteredPages, archModalVisible, setArchModal, pageKeys, selectedDate, setSelectedDate, selectedCatagory, setSelectedCatagory,
-      categories, pageOnView, setPageOnView,
+      catagories, pageOnView, setPageOnView,
       loadedPages, newsPages, setNewsPages, today } = React.useContext(ViewContext);
 
    const styleActive = (pageKey) => pageKey == pageOnView ? "shadow-md shadow-blue-700 border-t-2 border-slate-600" : "border-t-2 border-b-2 border-slate-500";

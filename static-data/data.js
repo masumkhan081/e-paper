@@ -3,7 +3,7 @@ import page2 from '../public/news/page2.jpg'
 import page3 from '../public/news/page3.jpg'
 import page4 from '../public/news/page4.jpg'
 
-const categories = [
+const catagories = [
    "All",
    "General",
    "Crime",
@@ -39,4 +39,4 @@ const loadedPages = {
 }
 
 
-export { categories, loadedPages } 
+export { catagories, loadedPages } 
