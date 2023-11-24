@@ -76,14 +76,13 @@ export default function NavTop() {
                      <CustomInput inputType='text' ph="Search .." buttonIcon={<FaSearch className={cmn_icon_style} />} />
                   </div>
                </div>
-               <div className='sm:hidden block relative bg-slate-200 rounded-md '>
-
+               <div className='sm:hidden block relative bg-slate-200 rounded-md text-black '>
                   <Menu />
                </div>
 
             </div>
 
-            <div className='bg-slate-100 flex sm:flex-row flex-col sm:gap-0 gap-2 sm:items-center items-start justify-between py-0.5 px-1.0'>
+            <div className='bg-slate-100 text-black flex sm:flex-row flex-col sm:gap-0 gap-2 sm:items-center items-start justify-between py-0.5 px-1.0'>
                <p className='flex gap-2 items-center font-bold'>  <span>Home</span> <IoIosArrowForward /> <span>All Catagories</span> <IoIosArrowForward /> <span>{selectedCatagory ? selectedCatagory : "All"} </span></p>
 
                <p className='flex gap-4   sm:w-fit w-full justify-between items-center font-sora'>
@@ -104,7 +103,7 @@ export default function NavTop() {
                <div className='flex gap-1 items-center'>
                   <CustomButton click={moveToFirst} txt="First" bg="light" iconStart={<IoArrowBackCircleOutline className={cmn_icon_style} />} />
                   <CustomButton click={moveBackward} bg="light" iconStart={<IoArrowBackCircleOutline className={cmn_icon_style} />} />
-                  <span className='min-w-[24px] bg-slate-300 text-center py-1 px-1 border rounded-md shadow-sm border-slate-400'>{getPageNumber(pageOnView)}</span>
+                  <span className='min-w-[24px] bg-slate-300 text-black text-center py-1 px-1 border rounded-md shadow-sm border-slate-500'>{getPageNumber(pageOnView)}</span>
                   <CustomButton click={moveForward} bg="light" iconStart={<IoArrowForwardCircleOutline className={cmn_icon_style} />} />
                   <CustomButton click={moveToLast} txt="Last" bg="light" iconEnd={<IoArrowForwardCircleOutline className={cmn_icon_style} />} />
                </div>
@@ -112,7 +111,7 @@ export default function NavTop() {
                   <CustomSelect value={pageOnView} options={filteredPages} bg="light" onChange={(value) => setPageOnView(value)} />
                   <CustomButton click={() => setArchModal(!archModalVisible)} bg="light" iconStart={<CgMenuGridR className={cmn_icon_style} />} />
                   <ArchieveModal />
-                  <DatePicker className='bg-slate-300 h-full py-1 shadow-sm border border-slate-500 rounded-md font-bold text-center w-[120px]' selected={selectedDate} onSelect={handleDateSelect} onChange={(date) => setSelectedDate(date)} />
+                  <DatePicker className='bg-slate-300 text-black h-full py-1 shadow-sm border border-slate-500 rounded-md font-bold text-center w-[120px]' selected={selectedDate} onSelect={handleDateSelect} onChange={(date) => setSelectedDate(date)} />
 
                </div>
             </div>

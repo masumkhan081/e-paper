@@ -12,7 +12,7 @@ export default function Menu({ bg, value }) {
 
    const { menuVisible, setMenu, selectedCatagory, setSelectedCatagory, catagories } = React.useContext(ViewContext);
 
-   const cmn_icon_style = "w-[1.3rem] h-[1.3rem] mx-1 "
+   const cmn_icon_style = "w-[1.3rem] h-[1.3rem] mx-1 text-black  "
 
    useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside);
@@ -43,7 +43,7 @@ export default function Menu({ bg, value }) {
    return (
       <div className="relative " ref={dropdownRef}>
 
-         <CustomButton click={() => setMenu(!menuVisible)} iconStart={<TiThMenu className={cmn_icon_style} />} />
+         <CustomButton click={() => setMenu(!menuVisible)} style={"border-double border-black rounded-md"} iconStart={<TiThMenu className={cmn_icon_style} />} />
 
          {menuVisible ?
             (<div className="absolute ms-1.0 mr-2.0 px-1.5 py-2.0  min-h-[300px] flex flex-col justify-between 
