@@ -33,7 +33,7 @@ const CustomSelect = ({ options, value, onChange, bg }) => {
     <div className="relative " ref={dropdownRef}>
 
       <div
-        className={`py-1 px-4 min-w-[110px] rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
+        className={`py-1 px-1.5 min-w-[110px] rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
       >
         <span>{value ? value : 'Select Catagory'}</span>

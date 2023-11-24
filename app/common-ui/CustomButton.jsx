@@ -7,7 +7,7 @@ export default function CustomButton({ txt, iconStart, iconEnd, style, bg, click
       "blue": "bg-blue-700 text-white"
    }
 
-   const cmn_style = ` py-1 px-1 flex  rounded-md shadow-sm  ${bgMap[bg]} `
+   const cmn_style = ` py-1 px-1 flex items-center rounded-md shadow-sm  ${bgMap[bg]} `
    return (
       <button className={style ? style : cmn_style} onClick={() => click()}>
          {iconStart}
